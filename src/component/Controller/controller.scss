@@ -1,0 +1,20 @@
+.controller li {
+    display: inline-block;
+    vertical-align: middle;
+    padding: 0 3px;
+
+    input {
+        width: 50px;
+        height: 35px;
+        text-align: center;
+        border: 1px solid #ddd;
+        border-radius: 2px;
+        box-sizing:border-box;
+
+        &[type="number"]::-webkit-outer-spin-button,
+        &[type="number"]::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+    }
+}
