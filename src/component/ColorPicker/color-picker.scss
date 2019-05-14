@@ -1,0 +1,30 @@
+.color-picker li {
+    position: relative;
+    display: inline-block;
+    vertical-align: middle;
+    margin: 0 3px;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    border-radius: 50%;
+    border: 5px solid #ddd;
+    box-sizing: border-box;
+
+    &::after {
+        content: '';
+        position: absolute;
+        top: -5px;
+        left: -5px;
+        z-index: 10;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        background-color: #fff;
+        opacity: 0.5;
+        display: block;
+    }
+
+    &.on::after {
+        opacity: 0;
+    }
+}
