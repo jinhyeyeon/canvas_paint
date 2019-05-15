@@ -4,8 +4,8 @@ import './controller.scss';
 import Btn1 from '../Btn1/Btn1';
 
 interface Props {
-    onIncrease?: () => void;
-    onDecrease?: () => void;
+    onMinus: (value: number) => void;
+    onPlus: (value: number) => void;
 }
 
 interface State {
@@ -19,8 +19,8 @@ class Controller extends React.Component<Props, State> {
 
     render() {
         const {
-            onIncrease,
-            onDecrease
+            onMinus,
+            onPlus
         } = this.props;
         const {
             value
@@ -32,6 +32,7 @@ class Controller extends React.Component<Props, State> {
                     <Btn1
                         onClick={() => {
                             value > 0 && this.setState({value: value - 1})
+                            onMinus(value-1)
                         }}
                     >
                         -
@@ -41,6 +42,7 @@ class Controller extends React.Component<Props, State> {
                     <input
                         type="number"
                         value={value}
+                        disabled
                         onChange={({target: {value}}) => this.setState({value: Number(value)})}
                     />
                 </li>
@@ -48,6 +50,7 @@ class Controller extends React.Component<Props, State> {
                     <Btn1
                         onClick={() => {
                             value < 100 && this.setState({value: value + 1})
+                            onPlus(value+1)
                         }}
                     >
                         +
