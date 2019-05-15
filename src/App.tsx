@@ -7,21 +7,32 @@ import ColorPicker, {COLOR} from './component/ColorPicker/ColorPicker';
 
 interface State {
     color: string;
+    value: number;
 }
 
 class App extends React.Component<{}, State> {
     state: State = {
-        color: COLOR[0]
+        color: COLOR[0],
+        value: 10
     }
 
     render() {
-        const {color} = this.state;
+        const {
+            color,
+            value
+        } = this.state;
 
         return (
             <div className="app">
                 <Header
-                    onChange={color => {
+                    onChange={(color) => {
                         this.setState({color});
+                    }}
+                    onMinus={(value) => {
+                        this.setState({value});
+                    }}
+                    onPlus={(value) => {
+                        this.setState({value});
                     }}
                 />
                 <SketchField
@@ -29,7 +40,7 @@ class App extends React.Component<{}, State> {
                     height="785px" 
                     tool={Tools.Pencil} 
                     lineColor={color}
-                    lineWidth={10}
+                    lineWidth={value}
                 />
                 <Footer />
             </div>
